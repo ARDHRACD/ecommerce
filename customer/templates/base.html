@@ -56,6 +56,19 @@
                 </div>
             </div>
         </header>
+        {%if messages%}
+        {%for msg in messages%}
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    {{msg}}
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+        {%endfor%}
+        {%endif%}
         <!-- Section-->
         {%block body%}
 

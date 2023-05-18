@@ -183,15 +183,23 @@ button.social-signin.google {
               
               <input type="submit" name="signup_submit" value="Login" />
 
-              {%if messages%}
-              {%for m in messages%}
-              <div class="alert alert-info">{{m}} </div>
-              {%endfor%}
-              {%endif%}
+              
               <p>New user ? <a href="{%url 'signup' %} ">signup </a></p>
             </div>
             
-               
+            {%if messages%}
+            {%for msg in messages%}
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        {{msg}}
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+            {%endfor%}
+            {%endif%}
             
         </div>
     </form>

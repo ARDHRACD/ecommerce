@@ -29,7 +29,10 @@ class SignUpView(CreateView):
     form_class=RegistrationForm
     template_name="signup.html"
     success_url=reverse_lazy("signin")
-    success_message="successfully created account"
+    def form_valid(self, form):
+        messages.success(self.request, "Account created successfully")
+        return super().form_valid(form)
+            
 
 class SignInView(FormView):
     template_name="login.html"
@@ -43,10 +46,10 @@ class SignInView(FormView):
             usr=authenticate(request,username=uname,password=pwd)
             if usr:
                 login(request,usr)
-                messages.success(request,"login successfully")
+                messages.success(request,"Login successfully")
                 return redirect("home")
             else:
-                messages.error(request,"provided credentials are not valid")
+                messages.error(request,"Provided credentials are not valid")
                 return render(request,"login.html",{"form":self.form_class})
 
 @method_decorator(signin_required,name="dispatch")        
@@ -106,7 +109,9 @@ class MakeOrderView(View):
         Orders.objects.create(product=product,user=user,address=address)
         cart.status="order-placed"
         cart.save()
+        messages.success(request,"order placed")
         return redirect("home")
+    
 
 @method_decorator(signin_required,name="dispatch")    
 class OrderlistView(View):
