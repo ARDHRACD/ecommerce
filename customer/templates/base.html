@@ -22,7 +22,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{%url 'home' %} ">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{%url 'offers-list' %} ">Offer Zone</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{%url 'order-list' %} ">My Order</a></li>
                         <li class="nav-item dropdown">
@@ -34,6 +34,8 @@
                                 <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{%url 'signout' %} ">Log out</a></li>
+  
                     </ul>
                     <form class="d-flex">
                         <a class="btn btn-outline-dark" href="{%url 'cart-list' %}">

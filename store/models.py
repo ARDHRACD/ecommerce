@@ -38,6 +38,13 @@ class Products(models.Model):
         qs=Reviews.objects.filter(product=self)
         return qs
 
+    @property 
+    def avg_rating(self):
+        qs=self.reviews
+        if qs:
+            total=sum([r.rating for r in qs])
+            return total/len(qs)
+
 class Carts(models.Model):
 
     product=models.ForeignKey(Products,on_delete=models.CASCADE)
